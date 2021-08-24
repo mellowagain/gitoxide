@@ -151,7 +151,6 @@ impl crate::index::File {
         let num_objects: u32 = num_objects
             .try_into()
             .map_err(|_| Error::IteratorInvariantTooManyObjects(num_objects))?;
-        last_base_index.ok_or(Error::IteratorInvariantBasesPresent)?;
 
         objects_progress.show_throughput(indexing_start);
         decompressed_progress.show_throughput(indexing_start);
